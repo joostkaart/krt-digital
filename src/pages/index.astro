@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "KRT Digital",
+  "description": "Interim, fractional & freelance management en strategische diensten op het gebied van Digital Marketing & E-commerce.",
+  "url": "https://krtdigital.nl",
+  "founder": {
+    "@type": "Person",
+    "name": "Joost Kaart",
+    "jobTitle": "Digital Marketing & E-commerce Consultant",
+    "url": "https://www.linkedin.com/in/joostkaart"
+  },
+  "areaServed": { "@type": "Country", "name": "Netherlands" },
+  "serviceType": [
+    "Interim Digital Marketing Management",
+    "Fractional CMO",
+    "Digital Marketing Strategy",
+    "E-commerce Management",
+    "Growth Marketing"
+  ]
+};
+
+const services = [
+  {
+    num: '01',
+    title: 'Interim & Fractional Management',
+    description: 'Invulling als (fractional) Head of Digital, E-commerce Manager of Marketing Director. Fulltime embedded of parttime leiderschap.',
+    icon: 'management',
+  },
+  {
+    num: '02',
+    title: 'Strategie & Groei',
+    description: 'Van digitale strategie en channel mix tot full-funnel groeimarketing en conversie-optimalisatie.',
+    icon: 'strategy',
+  },
+  {
+    num: '03',
+    title: 'Martech & Data',
+    description: 'Selectie en implementatie van je marketing technology stack. Data-gedreven marketing opzetten en optimaliseren.',
+    icon: 'martech',
+  },
+  {
+    num: '04',
+    title: 'Team & Organisatie',
+    description: 'Opbouwen, coachen en opschalen van digital marketing teams. Insource vs. outsource vraagstukken.',
+    icon: 'team',
+  },
+];
+
+const clients = ['NS', 'Sunweb', 'Pricewise'];
+---
+
+<BaseLayout
+  title="KRT Digital — Interim, Fractional & Freelance Digital Marketing"
+  description="Joost Kaart biedt interim, fractional en freelance management en strategische diensten op het gebied van Digital Marketing & E-commerce. 16+ jaar ervaring."
+  structuredData={structuredData}
+>
+  {/* ========== HERO — Editorial: massive serif type, asymmetric layout + illustration ========== */}
+  <section class="min-h-[85vh] flex items-center relative overflow-hidden">
+    {/* Abstract hero illustration — growth curves, digital nodes, upward motion */}
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <svg class="absolute right-0 top-0 w-[55%] h-full opacity-[0.06] hidden md:block" viewBox="0 0 800 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid slice">
+        {/* Flowing growth curves */}
+        <path d="M200 900C200 900 250 650 350 500C450 350 500 300 600 200C700 100 750 50 800 0" stroke="#d4622a" stroke-width="2"/>
+        <path d="M300 900C300 900 340 700 420 560C500 420 560 350 650 250C740 150 780 80 800 30" stroke="#0f1923" stroke-width="1.5"/>
+        <path d="M100 900C100 900 180 600 300 450C420 300 480 220 580 130C680 40 750 0 800 -20" stroke="#d4622a" stroke-width="1"/>
+        {/* Connected nodes — digital/data feel */}
+        <circle cx="350" cy="500" r="6" fill="#d4622a"/>
+        <circle cx="500" cy="350" r="4" fill="#0f1923"/>
+        <circle cx="600" cy="200" r="8" fill="#d4622a"/>
+        <circle cx="420" cy="560" r="3" fill="#0f1923"/>
+        <circle cx="650" cy="250" r="5" fill="#d4622a"/>
+        <circle cx="300" cy="450" r="4" fill="#d4622a"/>
+        <circle cx="580" cy="130" r="6" fill="#0f1923"/>
+        {/* Connecting lines between nodes */}
+        <line x1="350" y1="500" x2="500" y2="350" stroke="#0f1923" stroke-width="0.5" stroke-dasharray="4 6"/>
+        <line x1="500" y1="350" x2="600" y2="200" stroke="#d4622a" stroke-width="0.5" stroke-dasharray="4 6"/>
+        <line x1="600" y1="200" x2="650" y2="250" stroke="#0f1923" stroke-width="0.5" stroke-dasharray="4 6"/>
+        <line x1="300" y1="450" x2="420" y2="560" stroke="#d4622a" stroke-width="0.5" stroke-dasharray="4 6"/>
+        <line x1="580" y1="130" x2="650" y2="250" stroke="#d4622a" stroke-width="0.5" stroke-dasharray="4 6"/>
+        {/* Geometric accents */}
+        <rect x="540" y="400" width="40" height="40" stroke="#d4622a" stroke-width="0.8" fill="none" transform="rotate(15 560 420)"/>
+        <rect x="700" y="100" width="60" height="60" stroke="#0f1923" stroke-width="0.6" fill="none" transform="rotate(-10 730 130)"/>
+        <polygon points="250,350 270,310 290,350" stroke="#d4622a" stroke-width="0.8" fill="none"/>
+        {/* Subtle grid lines */}
+        <line x1="400" y1="0" x2="400" y2="900" stroke="#0f1923" stroke-width="0.2" stroke-dasharray="2 12"/>
+        <line x1="600" y1="0" x2="600" y2="900" stroke="#0f1923" stroke-width="0.2" stroke-dasharray="2 12"/>
+      </svg>
+    </div>
+
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-20 md:py-32 w-full relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4">
+        {/* Label */}
+        <div class="md:col-span-12">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">
+            Digital Marketing & E-commerce
+          </span>
+        </div>
+
+        {/* Main headline — spans most of the grid */}
+        <div class="md:col-span-10 lg:col-span-9">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-navy">
+            Interim, Fractional &
+            <em class="text-accent not-italic">Freelance</em> Digital
+            Marketing Leadership
+          </h1>
+        </div>
+
+        {/* Subtext — offset to the right for asymmetry */}
+        <div class="md:col-span-5 md:col-start-7 lg:col-start-7 mt-8 md:mt-12">
+          <p class="text-text-light text-base md:text-lg leading-relaxed mb-10">
+            16+ jaar ervaring in digital marketing & e-commerce. Strategisch en hands-on. Van interim management tot fractional CMO.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-3 no-underline group"
+          >
+            <span class="text-[12px] uppercase tracking-[0.15em] font-medium text-accent group-hover:text-accent-hover">
+              Neem contact op
+            </span>
+            <span class="w-10 h-px bg-accent group-hover:w-16 transition-all duration-300"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== CLIENT LOGOS — Refined editorial strip ========== */}
+  <section class="bg-bg-alt">
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-10 md:py-12">
+      <div class="flex items-center gap-8 md:gap-16">
+        <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium whitespace-nowrap shrink-0">
+          Gewerkt voor
+        </span>
+        <div class="h-px bg-border flex-1"></div>
+        <div class="flex items-center gap-8 md:gap-14">
+          {clients.map((client) => (
+            <span class="text-xl md:text-2xl font-[var(--font-serif)] text-text-lighter/50 select-none">
+              {client}
+            </span>
+          ))}
+        </div>
+        <div class="h-px bg-border flex-1 hidden md:block"></div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== SERVICES — Editorial numbered list with generous spacing ========== */}
+  <section>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-24 md:py-32">
+      {/* Section header — asymmetric */}
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16 md:mb-24">
+        <div class="md:col-span-5">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Expertise</span>
+          <h2 class="text-4xl md:text-5xl text-navy mt-4">Wat ik voor je kan doen</h2>
+        </div>
+        <div class="md:col-span-4 md:col-start-8 flex items-end">
+          <p class="text-text-light text-base leading-relaxed">
+            Senior digital marketing expertise, flexibel inzetbaar. Van strategisch advies tot operationeel leiderschap.
+          </p>
+        </div>
+      </div>
+
+      {/* Service list — editorial numbered entries with icons */}
+      <div class="space-y-0">
+        {services.map((service, index) => (
+          <div class={`grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 border-t border-border group`}>
+            {/* Number + Icon */}
+            <div class="md:col-span-1 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-3">
+              <span class="text-[12px] text-text-lighter font-light tabular-nums">{service.num}</span>
+              <div class="text-text-lighter/40 group-hover:text-accent/60 transition-colors duration-300">
+                {service.icon === 'management' && (
+                  <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="20" cy="8" r="4"/>
+                    <line x1="20" y1="12" x2="20" y2="22"/>
+                    <line x1="20" y1="22" x2="10" y2="32"/>
+                    <line x1="20" y1="22" x2="30" y2="32"/>
+                    <circle cx="10" cy="34" r="2.5"/>
+                    <circle cx="30" cy="34" r="2.5"/>
+                    <line x1="12" y1="18" x2="28" y2="18" stroke-dasharray="2 3"/>
+                  </svg>
+                )}
+                {service.icon === 'strategy' && (
+                  <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M8 32L16 20L24 24L34 8"/>
+                    <polyline points="26,8 34,8 34,16"/>
+                    <circle cx="16" cy="20" r="2" fill="currentColor" stroke="none" opacity="0.3"/>
+                    <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none" opacity="0.3"/>
+                    <circle cx="34" cy="8" r="2" fill="currentColor" stroke="none" opacity="0.5"/>
+                  </svg>
+                )}
+                {service.icon === 'martech' && (
+                  <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="20" cy="20" r="4"/>
+                    <circle cx="8" cy="10" r="3"/>
+                    <circle cx="32" cy="10" r="3"/>
+                    <circle cx="8" cy="32" r="3"/>
+                    <circle cx="32" cy="32" r="3"/>
+                    <line x1="17" y1="17" x2="10" y2="12"/>
+                    <line x1="23" y1="17" x2="30" y2="12"/>
+                    <line x1="17" y1="23" x2="10" y2="30"/>
+                    <line x1="23" y1="23" x2="30" y2="30"/>
+                  </svg>
+                )}
+                {service.icon === 'team' && (
+                  <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="14" cy="12" r="3.5"/>
+                    <circle cx="26" cy="12" r="3.5"/>
+                    <circle cx="20" cy="26" r="3.5"/>
+                    <path d="M14 16C14 16 10 18 10 22" stroke-linecap="round"/>
+                    <path d="M26 16C26 16 30 18 30 22" stroke-linecap="round"/>
+                    <path d="M17 28C17 28 14 30 14 34" stroke-linecap="round"/>
+                    <path d="M23 28C23 28 26 30 26 34" stroke-linecap="round"/>
+                    <line x1="17" y1="13" x2="23" y2="13" stroke-dasharray="2 2"/>
+                    <line x1="16" y1="24" x2="14" y2="16" stroke-dasharray="2 2" opacity="0.4"/>
+                    <line x1="24" y1="24" x2="26" y2="16" stroke-dasharray="2 2" opacity="0.4"/>
+                  </svg>
+                )}
+              </div>
+            </div>
+
+            {/* Title */}
+            <div class="md:col-span-4">
+              <h3 class="text-2xl md:text-3xl text-navy group-hover:text-accent transition-colors duration-300">{service.title}</h3>
+            </div>
+
+            {/* Description */}
+            <div class="md:col-span-5 md:col-start-7 flex items-center">
+              <p class="text-text-light text-sm leading-relaxed">{service.description}</p>
+            </div>
+
+            {/* Arrow */}
+            <div class="md:col-span-1 flex items-center justify-end">
+              <a href="/diensten" class="text-text-lighter group-hover:text-accent transition-colors no-underline" aria-label={`Meer over ${service.title}`}>
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* View all link */}
+      <div class="mt-12 md:mt-16">
+        <a href="/diensten" class="inline-flex items-center gap-3 no-underline group">
+          <span class="text-[12px] uppercase tracking-[0.15em] font-medium text-accent group-hover:text-accent-hover">
+            Bekijk alle diensten
+          </span>
+          <span class="w-8 h-px bg-accent group-hover:w-14 transition-all duration-300"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== STATS — Full-bleed dark section, editorial numbers ========== */}
+  <section class="bg-navy text-white relative overflow-hidden">
+    {/* Subtle geometric background pattern */}
+    <div class="absolute inset-0 pointer-events-none opacity-[0.04]" aria-hidden="true">
+      <svg class="w-full h-full" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <circle cx="100" cy="200" r="120" stroke="#d4622a" stroke-width="0.5"/>
+        <circle cx="100" cy="200" r="80" stroke="#d4622a" stroke-width="0.3"/>
+        <circle cx="1100" cy="100" r="150" stroke="white" stroke-width="0.5"/>
+        <circle cx="1100" cy="100" r="100" stroke="white" stroke-width="0.3"/>
+        <line x1="300" y1="0" x2="300" y2="400" stroke="white" stroke-width="0.3" stroke-dasharray="4 16"/>
+        <line x1="600" y1="0" x2="600" y2="400" stroke="white" stroke-width="0.3" stroke-dasharray="4 16"/>
+        <line x1="900" y1="0" x2="900" y2="400" stroke="white" stroke-width="0.3" stroke-dasharray="4 16"/>
+        <rect x="450" y="150" width="80" height="80" stroke="#d4622a" stroke-width="0.4" transform="rotate(20 490 190)"/>
+        <polygon points="800,50 830,100 770,100" stroke="white" stroke-width="0.4" fill="none"/>
+      </svg>
+    </div>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-24 md:py-32 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        {/* Left: editorial label */}
+        <div class="md:col-span-4">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-gray-500 font-medium">In cijfers</span>
+        </div>
+
+        {/* Right: stats grid */}
+        <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-12 md:gap-16">
+          <div>
+            <div class="font-[var(--font-serif)] text-6xl md:text-7xl text-accent leading-none mb-4">16+</div>
+            <div class="h-px bg-gray-700 mb-4"></div>
+            <p class="text-gray-400 text-sm leading-relaxed">Jaar ervaring in digital marketing & e-commerce</p>
+          </div>
+          <div>
+            <div class="font-[var(--font-serif)] text-6xl md:text-7xl text-accent leading-none mb-4">3</div>
+            <div class="h-px bg-gray-700 mb-4"></div>
+            <p class="text-gray-400 text-sm leading-relaxed">Inzetvormen: interim, fractional of project-based</p>
+          </div>
+          <div>
+            <div class="font-[var(--font-serif)] text-6xl md:text-7xl text-accent leading-none mb-4">360&deg;</div>
+            <div class="h-px bg-gray-700 mb-4"></div>
+            <p class="text-gray-400 text-sm leading-relaxed">Van strategie en team tot performance en martech</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== CTA ========== */}
+  <CTASection />
+</BaseLayout>

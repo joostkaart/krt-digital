@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   KRT Digital — Editorial / Magazine Theme
+   Sophisticated typography, asymmetric grids,
+   generous whitespace, refined details.
+   ============================================ */
+
+@theme {
+  /* Primary palette — warmer, richer */
+  --color-navy: #0f1923;
+  --color-navy-light: #1a2836;
+  --color-navy-dark: #0a1118;
+
+  /* Accent: Orange variant (default) — slightly more refined/burnt */
+  --color-accent: #d4622a;
+  --color-accent-hover: #bc551f;
+  --color-accent-light: #fdf2ec;
+
+  /* Accent: Teal variant (uncomment to switch)
+  --color-accent: #0ea5a0;
+  --color-accent-hover: #0c8e8a;
+  --color-accent-light: #ecfdf5;
+  */
+
+  /* Neutrals — warmer tones */
+  --color-text: #1a1a1a;
+  --color-text-light: #555555;
+  --color-text-lighter: #999999;
+  --color-bg: #fefefe;
+  --color-bg-alt: #f7f5f2;
+  --color-bg-dark: #eeebe6;
+  --color-border: #e0dcd5;
+
+  /* Typography — editorial serif + clean sans */
+  --font-serif: 'DM Serif Display', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --container-max: 80rem;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Editorial heading styles */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+/* Refined link transitions */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Horizontal rule — editorial style */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 0;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* Teal variant class — add to <html> to switch */
+.theme-teal {
+  --color-accent: #0ea5a0;
+  --color-accent-hover: #0c8e8a;
+  --color-accent-light: #ecfdf5;
+}

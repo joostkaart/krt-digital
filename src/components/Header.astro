@@ -1,0 +1,87 @@
+---
+import Logo from './Logo.astro';
+
+const navItems = [
+  { label: 'Diensten', href: '/diensten' },
+  { label: 'Over mij', href: '/over-mij' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="w-full">
+  <nav class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-6 md:py-8 flex items-center justify-between">
+    <Logo />
+
+    {/* Desktop navigation — editorial: small caps, wide tracking */}
+    <ul class="hidden md:flex items-center gap-10">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={`text-[12px] uppercase tracking-[0.15em] font-medium no-underline hover:text-accent ${
+              currentPath === item.href || currentPath.startsWith(item.href + '/')
+                ? 'text-accent'
+                : 'text-text-light'
+            }`}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {/* Mobile hamburger */}
+    <button
+      id="mobile-menu-button"
+      class="md:hidden p-2 -mr-2 text-text-light hover:text-text"
+      aria-label="Menu openen"
+      aria-expanded="false"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  {/* Subtle divider line */}
+  <div class="mx-8 md:mx-12 h-px bg-border"></div>
+
+  {/* Mobile menu — editorial overlay */}
+  <div id="mobile-menu" class="hidden md:hidden">
+    <ul class="px-8 py-8 space-y-5">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={`block font-[var(--font-serif)] text-2xl no-underline ${
+              currentPath === item.href
+                ? 'text-accent'
+                : 'text-text hover:text-accent'
+            }`}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mx-8 h-px bg-border"></div>
+  </div>
+</header>
+
+<script is:inline>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  menuButton?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden');
+    hamburgerIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    menuButton?.setAttribute('aria-expanded', isOpen === false ? 'true' : 'false');
+    menuButton?.setAttribute('aria-label', isOpen === false ? 'Menu sluiten' : 'Menu openen');
+  });
+</script>

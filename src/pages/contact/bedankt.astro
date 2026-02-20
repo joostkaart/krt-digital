@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Bedankt!"
+  description="Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op."
+>
+  <section class="relative overflow-hidden">
+    {/* Elegant success illustration */}
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <svg class="w-full h-full opacity-[0.06]" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        {/* Radiating success lines */}
+        <circle cx="850" cy="250" r="100" stroke="#d4622a" stroke-width="1.5"/>
+        <circle cx="850" cy="250" r="70" stroke="#d4622a" stroke-width="1"/>
+        <circle cx="850" cy="250" r="40" stroke="#d4622a" stroke-width="0.8"/>
+        {/* Checkmark in center */}
+        <polyline points="830,250 845,268 875,232" stroke="#d4622a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        {/* Radiating lines outward */}
+        <line x1="850" y1="130" x2="850" y2="100" stroke="#d4622a" stroke-width="1" stroke-linecap="round"/>
+        <line x1="850" y1="370" x2="850" y2="400" stroke="#d4622a" stroke-width="1" stroke-linecap="round"/>
+        <line x1="730" y1="250" x2="700" y2="250" stroke="#d4622a" stroke-width="1" stroke-linecap="round"/>
+        <line x1="970" y1="250" x2="1000" y2="250" stroke="#d4622a" stroke-width="1" stroke-linecap="round"/>
+        {/* Diagonal rays */}
+        <line x1="775" y1="175" x2="755" y2="155" stroke="#d4622a" stroke-width="0.8" stroke-linecap="round"/>
+        <line x1="925" y1="175" x2="945" y2="155" stroke="#d4622a" stroke-width="0.8" stroke-linecap="round"/>
+        <line x1="775" y1="325" x2="755" y2="345" stroke="#d4622a" stroke-width="0.8" stroke-linecap="round"/>
+        <line x1="925" y1="325" x2="945" y2="345" stroke="#d4622a" stroke-width="0.8" stroke-linecap="round"/>
+        {/* Decorative dots */}
+        <circle cx="200" cy="150" r="3" fill="#0f1923" opacity="0.3"/>
+        <circle cx="400" cy="400" r="4" fill="#d4622a" opacity="0.2"/>
+        <circle cx="1100" cy="100" r="3" fill="#d4622a" opacity="0.2"/>
+        {/* Subtle accent shapes */}
+        <rect x="100" y="350" width="30" height="30" stroke="#0f1923" stroke-width="0.5" fill="none" transform="rotate(20 115 365)"/>
+        <polygon points="300,100 315,75 330,100" stroke="#d4622a" stroke-width="0.6" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-32 md:py-44 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-8">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Bericht verzonden</span>
+
+          <h1 class="text-5xl md:text-6xl lg:text-7xl text-navy mt-4 leading-[1.05]">
+            Bedankt<em class="text-accent not-italic">.</em>
+          </h1>
+
+          <p class="text-text-light text-base md:text-lg leading-relaxed mt-8 max-w-xl">
+            Ik heb je bericht ontvangen en neem zo snel mogelijk contact met je op. Doorgaans binnen 24 uur.
+          </p>
+
+          <div class="mt-12">
+            <a href="/" class="inline-flex items-center gap-3 no-underline group">
+              <span class="w-10 h-px bg-accent group-hover:w-16 transition-all duration-300"></span>
+              <span class="text-[12px] uppercase tracking-[0.15em] font-medium text-accent group-hover:text-accent-hover">
+                Terug naar home
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

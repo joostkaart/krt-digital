@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joost Kaart",
+  "jobTitle": "Digital Marketing & E-commerce Consultant",
+  "url": "https://krtdigital.nl/over-mij",
+  "sameAs": [
+    "https://www.linkedin.com/in/joostkaart"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "KRT Digital"
+  },
+  "knowsAbout": [
+    "Digital Marketing",
+    "E-commerce",
+    "Growth Marketing",
+    "Performance Marketing",
+    "Marketing Technology",
+    "Marketing Strategy"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Erasmus Universiteit Rotterdam"
+  }
+};
+
+const highlights = [
+  { label: 'Ervaring', value: '16+ jaar' },
+  { label: 'Focus', value: 'Digital Marketing & E-commerce' },
+  { label: 'Locatie', value: 'Randstad, Nederland' },
+  { label: 'Talen', value: 'Nederlands & Engels' },
+];
+
+const publications = [
+  {
+    num: '01',
+    title: 'Een cookieless world: Welke stappen kun jij morgen ondernemen?',
+    publisher: 'DDMA',
+    date: 'December 2020',
+  },
+  {
+    num: '02',
+    title: 'Insourcing vs outsourcing van digital marketing',
+    publisher: 'DDMA',
+    date: 'November 2020',
+  },
+  {
+    num: '03',
+    title: 'Het selectieproces van een martech stack',
+    publisher: 'DDMA',
+    date: 'Juni 2020',
+  },
+  {
+    num: '04',
+    title: 'Full funnel marketing',
+    publisher: 'DDMA',
+    date: 'Februari 2020',
+  },
+];
+
+const expertise = [
+  'Digital Marketing Strategy',
+  'E-commerce Management',
+  'Growth & Performance Marketing',
+  'Marketing Technology & Data',
+  'Team Building & Leadership',
+  'Full-Funnel Marketing',
+  'Advertising & Paid Media',
+  'Conversie-optimalisatie',
+];
+---
+
+<BaseLayout
+  title="Over mij"
+  description="Joost Kaart — 16+ jaar ervaring in digital marketing & e-commerce. Interim, fractional en freelance consultant. Lees meer over mijn achtergrond en expertise."
+  structuredData={structuredData}
+>
+  {/* ========== PAGE HEADER — Editorial ========== */}
+  <section>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-20 md:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="md:col-span-8">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Over mij</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl text-navy mt-4 leading-[1.05]">
+            Joost <em class="text-accent not-italic">Kaart</em>
+          </h1>
+        </div>
+        <div class="md:col-span-4 md:col-start-9 flex items-end">
+          <p class="text-text-light text-base leading-relaxed">
+            Resultaatgericht digital marketing leider met een passie voor groei. 16+ jaar ervaring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== INTRO — Editorial asymmetric layout ========== */}
+  <section>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 pb-24 md:pb-32">
+      <div class="border-t border-border"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 pt-16 md:pt-20">
+        {/* Left: Photo + quick facts */}
+        <div class="lg:col-span-4 lg:pr-8">
+          {/* Professional photo */}
+          <div class="aspect-[3/4] mb-10 relative overflow-hidden">
+            <img
+              src="/joost-kaart.jpeg"
+              alt="Joost Kaart — Digital Marketing & E-commerce Consultant"
+              class="w-full h-full object-cover object-top"
+              loading="eager"
+            />
+          </div>
+
+          {/* Quick facts — editorial style */}
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">In het kort</span>
+          <div class="mt-6 space-y-5">
+            {highlights.map((item) => (
+              <div class="flex justify-between items-baseline border-b border-border pb-4">
+                <span class="text-[11px] uppercase tracking-[0.15em] text-text-lighter">{item.label}</span>
+                <span class="text-sm text-navy">{item.value}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/joostkaart"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex items-center gap-3 no-underline group"
+          >
+            <span class="text-[12px] uppercase tracking-[0.15em] font-medium text-accent group-hover:text-accent-hover">
+              LinkedIn profiel
+            </span>
+            <span class="w-8 h-px bg-accent group-hover:w-14 transition-all duration-300"></span>
+          </a>
+        </div>
+
+        {/* Right: Bio — editorial long-form */}
+        <div class="lg:col-span-7 lg:col-start-6">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Achtergrond</span>
+
+          <div class="mt-8 space-y-6">
+            <p class="font-[var(--font-serif)] text-2xl md:text-3xl text-navy leading-snug">
+              Hoi, ik ben Joost
+            </p>
+
+            <p class="text-text-light text-base leading-relaxed">
+              Met meer dan 16 jaar ervaring in digital marketing en e-commerce help ik bedrijven om hun digitale groeipotentieel te realiseren. Als interim, fractional of freelance professional stap ik in waar nodig — van strategische koersbepaling tot hands-on uitvoering.
+            </p>
+
+            <p class="text-text-light text-base leading-relaxed">
+              Na mijn studie aan de Erasmus Universiteit Rotterdam ben ik gestart in de wereld van online marketing. Sindsdien heb ik gewerkt bij en voor organisaties als NS, Sunweb en Pricewise, waar ik verantwoordelijk was voor het opzetten en opschalen van digitale marketing- en e-commerce teams en strategieën.
+            </p>
+
+            <p class="text-text-light text-base leading-relaxed">
+              Wat mij drijft is de combinatie van strategie en executie. Ik geloof niet in PowerPoint-plannen die in een la belanden. Mijn aanpak is altijd hands-on: ik werk samen met het team, bouw mee aan de uitvoering en zorg ervoor dat plannen daadwerkelijk leiden tot resultaat.
+            </p>
+
+            <p class="text-text-light text-base leading-relaxed">
+              Als thought leader deel ik mijn kennis regelmatig via publicaties en spreekbeurten. Bij DDMA heb ik meerdere artikelen gepubliceerd over onderwerpen als full-funnel marketing, martech stack selectie en de cookieless future.
+            </p>
+
+            <p class="text-[11px] text-text-lighter italic mt-8">
+              [Dit is een placeholder tekst. Pas deze aan met je eigen verhaal en specifieke resultaten.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== EXPERTISE — Editorial tag cloud ========== */}
+  <section class="bg-bg-alt">
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-14 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4">
+        <div class="md:col-span-3">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Expertise</span>
+        </div>
+        <div class="md:col-span-9 flex flex-wrap gap-3">
+          {expertise.map((skill) => (
+            <span class="text-[11px] uppercase tracking-[0.1em] text-text-lighter border border-border px-4 py-2 bg-white/60">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== PUBLICATIONS — Editorial numbered list ========== */}
+  <section>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-24 md:py-32">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
+        <div class="md:col-span-5">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Publicaties</span>
+          <h2 class="text-4xl md:text-5xl text-navy mt-4">Thought Leadership</h2>
+        </div>
+        <div class="md:col-span-4 md:col-start-8 flex items-end">
+          <p class="text-text-light text-base leading-relaxed">
+            Artikelen en publicaties over digital marketing trends, strategie en best practices.
+          </p>
+        </div>
+      </div>
+
+      {publications.map((pub, index) => (
+        <div class={`grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 border-t border-border`}>
+          {/* Number */}
+          <div class="md:col-span-1">
+            <span class="text-[12px] text-text-lighter font-light tabular-nums">{pub.num}</span>
+          </div>
+
+          {/* Title + publisher */}
+          <div class="md:col-span-7">
+            <h3 class="text-lg md:text-xl text-navy leading-snug">{pub.title}</h3>
+            <p class="text-text-lighter text-sm mt-2">{pub.publisher}</p>
+          </div>
+
+          {/* Date — right aligned */}
+          <div class="md:col-span-3 md:col-start-10 flex items-start md:justify-end">
+            <span class="text-[11px] uppercase tracking-[0.15em] text-text-lighter">{pub.date}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* ========== CTA ========== */}
+  <CTASection
+    title="Benieuwd wat ik voor je kan betekenen?"
+    description="Ik denk graag vrijblijvend met je mee. Neem contact op voor een kennismaking."
+  />
+</BaseLayout>

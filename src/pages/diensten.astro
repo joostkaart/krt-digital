@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": { "@type": "ProfessionalService", "name": "KRT Digital" },
+  "name": "Digital Marketing & E-commerce Diensten",
+  "description": "Interim, fractional en freelance diensten op het gebied van digital marketing management, strategie, groei, martech en teamontwikkeling.",
+  "areaServed": { "@type": "Country", "name": "Netherlands" }
+};
+
+const services = [
+  {
+    num: '01',
+    icon: 'management',
+    title: 'Interim & Fractional Digital Marketing Management',
+    description: 'Ik stap in als (fractional) Head of Digital Marketing, E-commerce Manager of Marketing Director. Of het nu gaat om een transitie, groeifase, zwangerschapsverlof of een organisatie die senior digital leiderschap nodig heeft zonder een fulltime hire.',
+    engagements: ['Interim (fulltime, 3-12 maanden)', 'Fractional (1-2 dagen per week, doorlopend)'],
+    examples: [
+      'Interim Head of Digital Marketing tijdens reorganisatie',
+      'Fractional CMO voor een scale-up die van 5 naar 20 man groeit',
+      'Tijdelijke vervanging van een vertrekkend e-commerce manager',
+    ],
+  },
+  {
+    num: '02',
+    icon: 'target',
+    title: 'Digital Marketing Strategie',
+    description: 'Ontwikkeling of aanscherping van je digitale marketingstrategie. Van doelgroepanalyse en channel mix tot roadmap en KPI-framework. Gericht op meetbare groei.',
+    engagements: ['Project-based (4-8 weken)', 'Fractional (doorlopend strategisch sparringpartner)'],
+    examples: [
+      'Digitale strategie voor een nieuw merk of product launch',
+      'Herijking van de channel mix en budgetallocatie',
+      'Ontwikkeling van een full-funnel marketing framework',
+    ],
+  },
+  {
+    num: '03',
+    icon: 'strategy',
+    title: 'Growth & Performance Marketing',
+    description: 'Hands-on leiderschap van acquisitie, retentie en conversie-optimalisatie. Van paid media en SEO tot CRO en e-mail marketing. Data-gedreven en resultaatgericht.',
+    engagements: ['Interim (fulltime)', 'Fractional (parttime)', 'Project-based'],
+    examples: [
+      'Opzetten en optimaliseren van performance marketing kanalen',
+      'Conversie-optimalisatie traject voor een e-commerce platform',
+      'Opschalen van een bewezen acquisitie-strategie naar nieuwe markten',
+    ],
+  },
+  {
+    num: '04',
+    icon: 'martech',
+    title: 'Marketing Technology & Data',
+    description: 'Selectie, implementatie en optimalisatie van je martech stack. Van analytics en attribution tot marketing automation en CDP. Zodat je datagedreven beslissingen kunt nemen.',
+    engagements: ['Project-based (6-12 weken)', 'Fractional (doorlopend)'],
+    examples: [
+      'Selectieproces voor een nieuwe martech stack',
+      'Implementatiebegeleiding van een CDP of marketing automation platform',
+      'Opzetten van een data-gedreven marketing organisatie',
+    ],
+  },
+  {
+    num: '05',
+    icon: 'team',
+    title: 'Team & Organisatie',
+    description: 'Opbouwen, coachen en opschalen van digital marketing teams. Advies over insource vs. outsource vraagstukken, teamstructuur en competentie-ontwikkeling.',
+    engagements: ['Interim (als leidinggevende van het team)', 'Project-based (assessment & advies)'],
+    examples: [
+      'Opbouwen van een digital marketing team van scratch',
+      'Insource vs. outsource analyse en transitiebegeleiding',
+      'Coaching en ontwikkeling van mid-level marketing managers',
+    ],
+  },
+];
+
+const engagementTypes = [
+  { type: 'Interim', description: 'Fulltime, ingebed in je organisatie voor een afgebakende periode. Meestal 3-12 maanden.' },
+  { type: 'Fractional', description: 'Parttime, doorlopend leiderschap. Bijvoorbeeld 1-2 dagen per week. Perfect voor scale-ups.' },
+  { type: 'Project-based', description: 'Afgebakende scope en deliverables. Strategieontwikkeling, martech selectie of team assessment.' },
+];
+---
+
+<BaseLayout
+  title="Diensten"
+  description="Interim, fractional en freelance digital marketing diensten. Van management en strategie tot growth marketing, martech en teamontwikkeling."
+  structuredData={structuredData}
+>
+  {/* ========== PAGE HEADER — Editorial: large serif, asymmetric ========== */}
+  <section class="relative overflow-hidden">
+    {/* Abstract expertise illustration */}
+    <div class="absolute right-0 top-0 w-[45%] h-full pointer-events-none select-none hidden md:block" aria-hidden="true">
+      <svg class="w-full h-full opacity-[0.05]" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid slice">
+        {/* Interconnected expertise web */}
+        <circle cx="300" cy="200" r="60" stroke="#d4622a" stroke-width="1.5"/>
+        <circle cx="150" cy="100" r="35" stroke="#0f1923" stroke-width="1"/>
+        <circle cx="450" cy="120" r="40" stroke="#0f1923" stroke-width="1"/>
+        <circle cx="200" cy="350" r="45" stroke="#d4622a" stroke-width="1"/>
+        <circle cx="450" cy="340" r="30" stroke="#0f1923" stroke-width="0.8"/>
+        {/* Connecting lines */}
+        <line x1="240" y1="180" x2="180" y2="125" stroke="#0f1923" stroke-width="0.8"/>
+        <line x1="355" y1="175" x2="415" y2="140" stroke="#0f1923" stroke-width="0.8"/>
+        <line x1="270" y1="250" x2="225" y2="310" stroke="#d4622a" stroke-width="0.8"/>
+        <line x1="345" y1="240" x2="430" y2="315" stroke="#0f1923" stroke-width="0.6"/>
+        <line x1="240" y1="350" x2="420" y2="340" stroke="#d4622a" stroke-width="0.5" stroke-dasharray="4 6"/>
+        {/* Center node highlight */}
+        <circle cx="300" cy="200" r="8" fill="#d4622a" opacity="0.15"/>
+        <circle cx="300" cy="200" r="3" fill="#d4622a" opacity="0.4"/>
+        {/* Accent dots */}
+        <circle cx="150" cy="100" r="4" fill="#0f1923" opacity="0.15"/>
+        <circle cx="450" cy="120" r="4" fill="#0f1923" opacity="0.12"/>
+        <circle cx="200" cy="350" r="5" fill="#d4622a" opacity="0.12"/>
+      </svg>
+    </div>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-20 md:py-32 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="md:col-span-8">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Diensten</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl text-navy mt-4 leading-[1.05]">
+            Expertise, flexibel<br /> <em class="text-accent not-italic">inzetbaar</em>
+          </h1>
+        </div>
+        <div class="md:col-span-4 md:col-start-9 flex items-end">
+          <p class="text-text-light text-base leading-relaxed">
+            Senior digital marketing leiderschap in de vorm die bij jouw situatie past. Interim, fractional of project-based.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== ENGAGEMENT TYPES — Editorial horizontal layout ========== */}
+  <section class="bg-bg-alt">
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-14 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4">
+        <div class="md:col-span-3">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Hoe ik werk</span>
+        </div>
+        <div class="md:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {engagementTypes.map((et) => (
+            <div>
+              {/* Engagement type icons */}
+              <div class="text-accent/50 mb-4">
+                {et.type === 'Interim' && (
+                  <svg class="w-10 h-10" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <rect x="6" y="10" width="32" height="28" rx="2"/>
+                    <line x1="6" y1="18" x2="38" y2="18"/>
+                    <line x1="14" y1="6" x2="14" y2="12"/>
+                    <line x1="30" y1="6" x2="30" y2="12"/>
+                    <rect x="12" y="23" width="6" height="4" fill="currentColor" opacity="0.2" stroke="none"/>
+                    <rect x="12" y="30" width="6" height="4" fill="currentColor" opacity="0.2" stroke="none"/>
+                    <rect x="19" y="23" width="6" height="4" fill="currentColor" opacity="0.2" stroke="none"/>
+                    <rect x="19" y="30" width="6" height="4" fill="currentColor" opacity="0.2" stroke="none"/>
+                    <rect x="26" y="23" width="6" height="4" fill="currentColor" opacity="0.2" stroke="none"/>
+                    <rect x="26" y="30" width="6" height="4" fill="currentColor" opacity="0.15" stroke="none"/>
+                  </svg>
+                )}
+                {et.type === 'Fractional' && (
+                  <svg class="w-10 h-10" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="22" cy="22" r="16"/>
+                    <path d="M22 22 L22 10" stroke-linecap="round"/>
+                    <path d="M22 22 L32 28" stroke-linecap="round"/>
+                    <path d="M22 6 A16 16 0 0 1 38 22 L22 22 Z" fill="currentColor" opacity="0.12" stroke="none"/>
+                  </svg>
+                )}
+                {et.type === 'Project-based' && (
+                  <svg class="w-10 h-10" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <path d="M8 34 L18 34 L18 20 L36 20" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="30,14 36,20 30,26"/>
+                    <circle cx="8" cy="34" r="3" fill="currentColor" opacity="0.2"/>
+                    <circle cx="36" cy="20" r="3" fill="currentColor" opacity="0.2"/>
+                    <line x1="18" y1="27" x2="28" y2="27" stroke-dasharray="2 3" opacity="0.4"/>
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-lg text-navy mb-2">{et.type}</h3>
+              <p class="text-text-light text-sm leading-relaxed">{et.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ========== SERVICE DETAILS — Editorial numbered sections ========== */}
+  <section>
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-24 md:py-32">
+      {services.map((service, index) => (
+        <div class={`grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-14 md:py-20 ${index > 0 ? 'border-t border-border' : 'border-t border-border'}`}>
+          {/* Number + Icon */}
+          <div class="md:col-span-1 flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-3">
+            <span class="text-[12px] text-text-lighter font-light tabular-nums">{service.num}</span>
+            <div class="text-text-lighter/30">
+              {service.icon === 'management' && (
+                <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="20" cy="8" r="4"/><line x1="20" y1="12" x2="20" y2="22"/>
+                  <line x1="20" y1="22" x2="10" y2="32"/><line x1="20" y1="22" x2="30" y2="32"/>
+                  <circle cx="10" cy="34" r="2.5"/><circle cx="30" cy="34" r="2.5"/>
+                </svg>
+              )}
+              {service.icon === 'target' && (
+                <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="9"/>
+                  <circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.3"/>
+                  <line x1="20" y1="2" x2="20" y2="8"/><line x1="20" y1="32" x2="20" y2="38"/>
+                  <line x1="2" y1="20" x2="8" y2="20"/><line x1="32" y1="20" x2="38" y2="20"/>
+                </svg>
+              )}
+              {service.icon === 'strategy' && (
+                <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M8 32L16 20L24 24L34 8"/><polyline points="26,8 34,8 34,16"/>
+                  <circle cx="16" cy="20" r="2" fill="currentColor" stroke="none" opacity="0.3"/>
+                  <circle cx="34" cy="8" r="2" fill="currentColor" stroke="none" opacity="0.5"/>
+                </svg>
+              )}
+              {service.icon === 'martech' && (
+                <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="20" cy="20" r="4"/><circle cx="8" cy="10" r="3"/><circle cx="32" cy="10" r="3"/>
+                  <circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/>
+                  <line x1="17" y1="17" x2="10" y2="12"/><line x1="23" y1="17" x2="30" y2="12"/>
+                  <line x1="17" y1="23" x2="10" y2="30"/><line x1="23" y1="23" x2="30" y2="30"/>
+                </svg>
+              )}
+              {service.icon === 'team' && (
+                <svg class="w-7 h-7" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="14" cy="12" r="3.5"/><circle cx="26" cy="12" r="3.5"/><circle cx="20" cy="26" r="3.5"/>
+                  <path d="M14 16C14 16 10 18 10 22" stroke-linecap="round"/>
+                  <path d="M26 16C26 16 30 18 30 22" stroke-linecap="round"/>
+                  <line x1="17" y1="13" x2="23" y2="13" stroke-dasharray="2 2"/>
+                </svg>
+              )}
+            </div>
+          </div>
+
+          {/* Title + description */}
+          <div class="md:col-span-5">
+            <h2 class="text-2xl md:text-3xl text-navy mb-6 leading-snug">{service.title}</h2>
+            <p class="text-text-light text-sm leading-relaxed mb-6">{service.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {service.engagements.map((eng) => (
+                <span class="text-[11px] uppercase tracking-[0.1em] text-text-lighter border border-border px-3 py-1.5">
+                  {eng}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Examples — offset right */}
+          <div class="md:col-span-4 md:col-start-8">
+            <span class="text-[11px] uppercase tracking-[0.2em] text-text-lighter font-medium">Voorbeelden</span>
+            <ul class="mt-4 space-y-4">
+              {service.examples.map((example) => (
+                <li class="flex items-start gap-3 text-sm text-text-light leading-relaxed">
+                  <span class="w-1 h-1 rounded-full bg-accent mt-2 shrink-0"></span>
+                  {example}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* ========== CTA ========== */}
+  <CTASection
+    title="Herken je jouw situatie?"
+    description="Laten we in een vrijblijvend gesprek kijken hoe ik je kan helpen."
+  />
+</BaseLayout>

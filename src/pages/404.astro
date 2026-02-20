@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Pagina niet gevonden"
+  description="De pagina die je zoekt bestaat niet of is verplaatst."
+>
+  <section class="relative overflow-hidden">
+    {/* Scattered geometric illustration — "lost" / broken compass feel */}
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <svg class="w-full h-full opacity-[0.06]" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        {/* Broken compass — scattered pieces */}
+        <circle cx="900" cy="280" r="80" stroke="#0f1923" stroke-width="1.5" stroke-dasharray="8 12"/>
+        <circle cx="900" cy="280" r="55" stroke="#d4622a" stroke-width="1"/>
+        {/* Compass needle — broken/offset */}
+        <line x1="900" y1="240" x2="880" y2="200" stroke="#d4622a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="900" y1="320" x2="920" y2="350" stroke="#0f1923" stroke-width="1.5" stroke-linecap="round"/>
+        {/* Cardinal directions — scattered */}
+        <text x="900" y="210" text-anchor="middle" font-size="12" fill="#0f1923" opacity="0.4" font-family="Inter, sans-serif">N</text>
+        <text x="970" y="285" text-anchor="middle" font-size="12" fill="#0f1923" opacity="0.3" font-family="Inter, sans-serif" transform="rotate(15 970 285)">O</text>
+        <text x="900" y="360" text-anchor="middle" font-size="12" fill="#0f1923" opacity="0.2" font-family="Inter, sans-serif">Z</text>
+        <text x="835" y="285" text-anchor="middle" font-size="12" fill="#0f1923" opacity="0.3" font-family="Inter, sans-serif" transform="rotate(-10 835 285)">W</text>
+        {/* Scattered geometric fragments */}
+        <rect x="150" y="100" width="40" height="40" stroke="#d4622a" stroke-width="0.8" fill="none" transform="rotate(25 170 120)"/>
+        <rect x="200" y="400" width="30" height="30" stroke="#0f1923" stroke-width="0.6" fill="none" transform="rotate(-15 215 415)"/>
+        <polygon points="350,150 370,120 390,150" stroke="#d4622a" stroke-width="0.8" fill="none" transform="rotate(10 370 135)"/>
+        <circle cx="500" cy="450" r="15" stroke="#0f1923" stroke-width="0.5"/>
+        <line x1="100" y1="300" x2="250" y2="300" stroke="#d4622a" stroke-width="0.4" stroke-dasharray="4 8"/>
+        <line x1="700" y1="150" x2="700" y2="450" stroke="#0f1923" stroke-width="0.3" stroke-dasharray="3 10"/>
+        {/* Scattered dots */}
+        <circle cx="400" cy="200" r="3" fill="#d4622a" opacity="0.2"/>
+        <circle cx="600" cy="400" r="2" fill="#0f1923" opacity="0.15"/>
+        <circle cx="1050" cy="150" r="4" fill="#d4622a" opacity="0.15"/>
+      </svg>
+    </div>
+
+    <div class="mx-auto max-w-[var(--container-max)] px-8 md:px-12 py-32 md:py-44 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-2">
+          <span class="font-[var(--font-serif)] text-8xl md:text-9xl text-accent/15 leading-none">404</span>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-4 flex flex-col justify-center">
+          <span class="text-[11px] uppercase tracking-[0.25em] text-text-lighter font-medium">Pagina niet gevonden</span>
+
+          <h1 class="text-4xl md:text-5xl text-navy mt-4 leading-[1.05]">
+            Deze pagina bestaat niet
+          </h1>
+
+          <p class="text-text-light text-base leading-relaxed mt-6 max-w-md">
+            De pagina die je zoekt is verplaatst of bestaat niet meer. Ga terug naar de homepage.
+          </p>
+
+          <div class="mt-10">
+            <a href="/" class="inline-flex items-center gap-3 no-underline group">
+              <span class="w-10 h-px bg-accent group-hover:w-16 transition-all duration-300"></span>
+              <span class="text-[12px] uppercase tracking-[0.15em] font-medium text-accent group-hover:text-accent-hover">
+                Naar de homepage
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

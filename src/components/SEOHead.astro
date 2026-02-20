@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+  structuredData?: object;
+}
+
+const {
+  title,
+  description,
+  canonicalURL = Astro.url.href,
+  ogImage = '/og-image.png',
+  type = 'website',
+  structuredData,
+} = Astro.props;
+
+const siteName = 'KRT Digital';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+
+// GA4 Measurement ID — replace with your actual ID
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+---
+
+<!-- Primary Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content="Joost Kaart" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="nl_NL" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
+
+<!-- Language -->
+<meta property="og:locale" content="nl_NL" />
+<link rel="alternate" hreflang="nl" href={canonicalURL} />
+
+<!-- Structured Data (JSON-LD) -->
+{structuredData && (
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+)}
+
+<!-- Google Analytics 4
+     NOTE: Loaded without consent banner per owner's decision.
+     To add a consent banner later, wrap this in a conditional that checks for user consent.
+-->
+<script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+  // Only load in production
+  if (window.location.hostname !== 'localhost') {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+  }
+</script>
