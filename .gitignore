@@ -26,3 +26,6 @@ pnpm-debug.log*
 # original source photos (public copies are tracked)
 joost1.jpeg
 *.bak
+
+# Local Netlify folder
+.netlify
