@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" width="300" height="340">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6c185"/>
+      <stop offset="100%" style="stop-color:#c5a36a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Circle outline -->
+  <circle cx="150" cy="150" r="100" fill="none" stroke="url(#goldGrad)" stroke-width="8"/>
+
+  <!-- Stylized arrow icon -->
+  <g transform="translate(150,148)">
+    <!-- Arrow head pointing upper-right -->
+    <path d="
+      M 2,-60
+      L 45,-17
+      L 24,-17
+      L 24,15
+      L 10,15
+      L 10,-5
+      L -20,-5
+      L -20,-32
+      L -6,-32
+      L -6,-17
+      Z
+    " fill="url(#goldGrad)"/>
+
+    <!-- Swooping curved tail -->
+    <path d="
+      M -20,-5
+      L 10,-5
+      L 10,15
+      L -6,15
+      L -6,8
+      C -6,28 -18,40 -36,44
+      L -40,30
+      C -26,27 -20,18 -20,8
+      Z
+    " fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- KRT Digital text -->
+  <text x="150" y="298" text-anchor="middle" font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="3" fill="url(#goldGrad)">KRT Digital</text>
+</svg>

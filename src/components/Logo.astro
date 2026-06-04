@@ -1,19 +1,12 @@
 ---
 interface Props {
-  variant?: 'dark' | 'light';
   class?: string;
+  imgClass?: string;
 }
 
-const { variant = 'dark', class: className = '' } = Astro.props;
-const primaryColor = variant === 'light' ? '#ffffff' : 'var(--color-text)';
-const lightColor = variant === 'light' ? 'rgba(255,255,255,0.5)' : 'var(--color-text-lighter)';
+const { class: className = '', imgClass = 'h-10' } = Astro.props;
 ---
 
-<a href="/" class={`inline-flex items-baseline gap-1.5 no-underline group ${className}`} aria-label="KRT Digital — Naar homepage">
-  <span class="font-[var(--font-serif)] text-2xl tracking-tight leading-none" style={`color: ${primaryColor}`}>
-    KRT
-  </span>
-  <span class="text-[11px] font-light uppercase tracking-[0.25em] leading-none" style={`color: ${lightColor}`}>
-    Digital
-  </span>
+<a href="/" class={`inline-flex items-center no-underline group ${className}`} aria-label="KRT Digital — Naar homepage">
+  <img src="/krt-logo.png" alt="KRT Digital" class={`w-auto ${imgClass}`} />
 </a>
