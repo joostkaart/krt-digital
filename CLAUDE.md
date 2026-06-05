@@ -28,7 +28,7 @@ src/
 public/
 ├── joost-kaart.jpeg # Professional headshot
 ├── krt-logo.png     # Logo used in Header/Footer (via Logo.astro)
-├── favicon.svg/.ico # KRT logo favicon
+├── favicon.ico + favicon-16/32/192/512.png, apple-touch-icon.png # KRT logo-mark favicons (generated from public/krt-logo.png)
 └── robots.txt
 ```
 - `Logo.astro` accepts an `imgClass` prop to size the logo per placement (header uses `h-16 md:h-20`; footer uses the default `h-10`).
